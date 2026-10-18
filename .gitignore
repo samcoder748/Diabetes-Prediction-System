@@ -28,17 +28,21 @@ env/
 
 # Data
 data/*.csv
+!data/diabetes.csv
 !data/README.md
 
 # Models
 models/*.pkl
 models/*.joblib
+!models/diabetes_model.joblib
 !models/README.md
 
 # Reports
 reports/*.png
 reports/*.html
 reports/*.json
+!reports/evaluation_metrics.json
+!reports/*.html
 !reports/README.md
 
 # Jupyter

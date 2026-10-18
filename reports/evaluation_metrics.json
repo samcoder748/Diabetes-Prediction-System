@@ -1,0 +1,51 @@
+{
+  "model_name": "Random Forest",
+  "model_version": "1.0.0",
+  "training_timestamp": "2026-10-18T11:22:16.117696",
+  "threshold": 0.5,
+  "random_state": 42,
+  "test_size": 0.2,
+  "feature_columns": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+  ],
+  "metrics": {
+    "Accuracy": 0.9624060150375939,
+    "Precision": 0.5555555555555556,
+    "Recall": 0.8333333333333334,
+    "Specificity": 0.968503937007874,
+    "F1-Score": 0.6666666666666666,
+    "ROC-AUC": 0.989501312335958,
+    "Average Precision": 0.9047619047619047,
+    "Brier Score": 0.023719169097814092,
+    "True Positives": 5,
+    "True Negatives": 123,
+    "False Positives": 4,
+    "False Negatives": 1,
+    "CV ROC-AUC Mean": 0.9803115899825278,
+    "CV ROC-AUC Std": 0.01139283362936188
+  },
+  "model_comparison": {
+    "Logistic Regression": {
+      "ROC-AUC": 0.9776902887139108,
+      "Accuracy": 0.9473684210526315,
+      "F1-Score": 0.631578947368421
+    },
+    "Decision Tree": {
+      "ROC-AUC": 0.6541994750656168,
+      "Accuracy": 0.9473684210526315,
+      "F1-Score": 0.36363636363636365
+    },
+    "Random Forest": {
+      "ROC-AUC": 0.989501312335958,
+      "Accuracy": 0.9624060150375939,
+      "F1-Score": 0.6666666666666666
+    }
+  }
+}
