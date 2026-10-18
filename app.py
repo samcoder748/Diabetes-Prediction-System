@@ -62,9 +62,20 @@ def check_model_exists() -> bool:
 def load_metrics() -> dict:
     """Load evaluation metrics."""
     if METRICS_PATH.exists():
-        with open(METRICS_PATH, "r") as f:
+        with open(METRICS_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
     return None
+
+
+def read_html_file(file_path: Path) -> str:
+    """Read an HTML file using UTF-8 encoding with fallback."""
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except UnicodeDecodeError:
+        with open(file_path, "r", encoding="utf-8", errors="replace") as f:
+            return f.read()
+
 
 
 def dashboard_page():
@@ -404,24 +415,21 @@ def model_performance_page():
         st.markdown("### Confusion Matrix")
         cm_fig_path = REPORTS_DIR / "confusion_matrix.html"
         if cm_fig_path.exists():
-            with open(cm_fig_path, "r") as f:
-                st.components.v1.html(f.read(), height=500)
+            st.components.v1.html(read_html_file(cm_fig_path), height=500)
         else:
             st.warning("Confusion matrix visualization not found.")
 
         st.markdown("### ROC Curve")
         roc_fig_path = REPORTS_DIR / "roc_curve.html"
         if roc_fig_path.exists():
-            with open(roc_fig_path, "r") as f:
-                st.components.v1.html(f.read(), height=500)
+            st.components.v1.html(read_html_file(roc_fig_path), height=500)
         else:
             st.warning("ROC curve visualization not found.")
 
         st.markdown("### Precision-Recall Curve")
         pr_fig_path = REPORTS_DIR / "precision_recall_curve.html"
         if pr_fig_path.exists():
-            with open(pr_fig_path, "r") as f:
-                st.components.v1.html(f.read(), height=500)
+            st.components.v1.html(read_html_file(pr_fig_path), height=500)
         else:
             st.warning("Precision-recall curve visualization not found.")
 
