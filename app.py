@@ -242,8 +242,8 @@ def prediction_page():
 
             bmi = st.number_input(
                 "BMI",
-                min_value=INPUT_BOUNDS["BMI"][0],
-                max_value=INPUT_BOUNDS["BMI"][1],
+                min_value=float(INPUT_BOUNDS["BMI"][0]),
+                max_value=float(INPUT_BOUNDS["BMI"][1]),
                 value=25.0,
                 step=0.1,
                 help="Body mass index"
